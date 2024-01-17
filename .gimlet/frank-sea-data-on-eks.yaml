@@ -1,0 +1,72 @@
+app: data-on-eks
+env: frank-sea
+namespace: default
+chart:
+  repository: https://chart.onechart.dev
+  name: onechart
+  version: 0.60.0
+values:
+  containerPort: 80
+  description: test
+  documentation: ""
+  gitRepository: zecksr/data-on-eks
+  gitSha: '{{ .SHA }}'
+  image:
+    repository: ghcr.io/your-company/your-repo
+    tag: '{{ .SHA }}'
+  ingress:
+    annotations: {}
+    host: test
+    path: /
+    tlsEnabled: true
+  issues: ""
+  livenessProbe:
+    enabled: false
+    path: /
+    settings:
+      failureThreshold: 3
+      initialDelaySeconds: 0
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 3
+  logs: ""
+  metrics: ""
+  name: test
+  ownerIm: ""
+  ownerName: ""
+  podAnnotations:
+    newKey: New Value
+  podDisruptionBudgetEnabled: true
+  podLabels:
+    newKey: New Value
+  probe:
+    enabled: false
+    path: /
+    settings:
+      failureThreshold: 3
+      initialDelaySeconds: 0
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 3
+  replicas: 1
+  resources:
+    ignore: false
+    ignoreLimits: false
+    limits:
+      cpu: 200m
+      memory: 200Mi
+    requests:
+      cpu: 200m
+      memory: 200Mi
+  sealedSecrets:
+    newKey: New Value
+  secretEnabled: true
+  spreadAcrossNodes: true
+  traces: ""
+  vars: {}
+  volumes:
+    - name: data
+      path: /data
+      pvcAnnotations: {}
+      size: "10"
+      storageClass: gp3
